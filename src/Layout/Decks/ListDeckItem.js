@@ -3,19 +3,12 @@ import './ListDeckItem.css'
 import {useEffect, useState} from "react";
 import {deleteDeck, listDecks, readDeck} from "../../utils/api";
 
-function ListDeckItem({deck, index}){
+function ListDeckItem({deck}){
     const [cards, setCards] = useState([]);
     const navigate = useNavigate();
 
     useEffect( () => {
-        const abortController = new AbortController();
-        readDeck(deck.id, abortController.signal).then(response => {
-            setCards(response.cards);
-            console.log("cards: ", cards.cards);
-        }).catch(
-            error => console.log(error)
-        )
-        return () => abortController.abort();
+       setCards(deck.cards);
     }, [deck]);
 
     const handleDeckDelete = (e) => {
@@ -33,7 +26,7 @@ function ListDeckItem({deck, index}){
 
     if (cards){
         return(
-            <div className="list-deck-item" key={index}>
+            <div className="list-deck-item">
                 <h5>{deck.name}</h5>
                 <h6>{cards.length} cards</h6>
                 <p>{deck.description}</p>

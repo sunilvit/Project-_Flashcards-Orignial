@@ -5,7 +5,7 @@ function ListDecks({decks}){
         return (
             <div>
                 {decks.map((deck, index) => (
-                    <ListDeckItem deck={deck} index={index}/>
+                    <ListDeckItem deck={deck} />
                 ))}
             </div>
         )
