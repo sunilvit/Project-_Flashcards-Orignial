@@ -28,16 +28,16 @@ function CardView({cards}){
                 <>
                     <h3>Not enough cards.</h3>
                     <p>You need at least 3 cards to study. There are {cards.length} in this deck.</p>
-                    <Link to={`/decks/${deckId}/cards/new`}>Add Cards</Link>
+                    <Link to={`/decks/${deckId}/cards/new`} className='button-link add'>Add Cards</Link>
                 </>
             )
         }
         return (
-            <div>
+            <div className="list-deck-item">
                 <h4>Card {index+1} of {cards.length}</h4>
                 <p>{isFlipped ? cards[index].back : cards[index].front}</p>
-                <button onClick={flipFace}>Flip</button>
-                { isFlipped && <button onClick={nextCard}>Next</button>}
+                <button onClick={flipFace} className="button-link flip">Flip</button>
+                { isFlipped && <button onClick={nextCard} className="button-link next">Next</button>}
             </div>
         )
     }

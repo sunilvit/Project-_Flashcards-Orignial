@@ -9,6 +9,61 @@
     display: inline-block;
 }
 
+h6{
+    color: lightslategrey;
+}
+
+.list-deck-item{
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px;
+}
+.list-deck-item-links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-links {
+    display: flex;
+    gap: 10px;
+}
+
+.right-link {
+    margin-left: auto;
+}
+
 .button-link.create {
     background-color: grey;
+}
+.button-link.flip {
+    background-color: grey;
+}
+
+.button-link.view {
+    background-color: #007bff;
+}
+.button-link.next {
+    background-color: #007bff;
+}
+.button-link.add {
+    background-color: #007bff;
+}
+
+.button-link.study {
+    background-color: #28a745;
+}
+
+.button-link.delete {
+    background-color: #dc3545;
+}
+
+table{
+    width: 100%;
+}
+.table-left{
+    text-align: left;
+}
+.table-right{
+    text-align: right;
 }

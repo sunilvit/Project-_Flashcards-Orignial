@@ -61,12 +61,12 @@ function EditCardInDeck(){
                     <label htmlFor='back'>Front
                         <br/>
                         <textarea id='back' name='back' rows='4' cols='50' placeholder='Back side of card'
-                                  onChange={handleCardChange} value={formData.back}/>
+                                  onChange={handleCardChange} value={formData.back} />
                     </label>
                     <br/>
                     <div>
-                        <Link to={`/decks/${deckId}`}>Cancel</Link>
-                        <button type='submit'>Save</button>
+                        <Link to={`/decks/${deckId}`} className='button-link cancel'>Cancel</Link>
+                        <button type='submit' className='button-link submit'>Save</button>
                     </div>
                 </form>
             </div>

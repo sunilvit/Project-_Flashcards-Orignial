@@ -2,6 +2,7 @@ import Header from "../Header";
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {createDeck, listDecks} from "../../utils/api";
+import './CreateNewDeck.css'
 
 function CreateNewDeck(){
     const navigate = useNavigate();
@@ -50,8 +51,8 @@ function CreateNewDeck(){
                               onChange={handleChange} value={formData.description}/>
                 </label>
                 <div>
-                    <button type='reset' onClick={() => navigate("/")}>Cancel</button>
-                    <button type='submit' >Submit</button>
+                    <button type='reset' onClick={() => navigate("/")} className='button-link cancel'>Cancel</button>
+                    <button type='submit' className='button-link submit'>Submit</button>
                 </div>
             </form>
         </div>

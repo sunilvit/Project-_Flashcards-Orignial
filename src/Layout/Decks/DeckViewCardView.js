@@ -16,17 +16,19 @@ function DeckViewCardView({card}){
         }
     }
     return(
-        <div>
+        <div className="list-deck-item">
             <table>
                 <tbody>
                 <tr>
-                    <td>{card.front}</td>
-                    <td>{card.back}</td>
+                    <td className={'table-left'}>{card.front}</td>
+                    <td className={'table-right'}>{card.back}</td>
                 </tr>
                 <tr>
-                    <td><Link to={`/decks/${card.deckId}/cards/${card.id}/edit`}>Edit</Link></td>
-                    <td>
-                        <button onClick={() => handleCardDelete(card.id)}>Delete(TBD)</button>
+                    <td className={'table-left'}></td>
+                    <td className={'table-right'}>
+                        <Link to={`/decks/${card.deckId}/cards/${card.id}/edit`}
+                              className='button-link edit'>Edit</Link>
+                        <button onClick={() => handleCardDelete(card.id)} className='button-link delete'>Delete</button>
                     </td>
                 </tr>
                 </tbody>

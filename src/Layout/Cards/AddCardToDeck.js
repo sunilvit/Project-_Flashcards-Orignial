@@ -61,8 +61,8 @@ function AddCardToDeck(){
                     </label>
                     <br/>
                     <div>
-                        <Link to={`/decks/${deckId}`}>Done</Link>
-                        <button type='submit'>Save</button>
+                        <Link to={`/decks/${deckId}`} className='button-link cancel'>Done</Link>
+                        <button type='submit' className='button-link submit'>Save</button>
                     </div>
                 </form>
             </div>

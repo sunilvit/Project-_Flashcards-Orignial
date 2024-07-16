@@ -60,8 +60,8 @@ function DeckEdit(){
                               onChange={handleChange} value={formData.description}/>
                 </label>
                 <div>
-                    <button type='reset' onClick={() => navigate(`/decks/${deck.id}`)}>Cancel</button>
-                    <button type='submit'>Submit</button>
+                    <button type='reset' onClick={() => navigate(`/decks/${deck.id}`)} className='button-link cancel'>Cancel</button>
+                    <button type='submit' className='button-link submit'>Submit</button>
                 </div>
             </form>
         </div>

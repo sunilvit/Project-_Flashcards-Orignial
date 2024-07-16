@@ -1,5 +1,4 @@
 import {Link, useNavigate} from "react-router-dom";
-import './ListDeckItem.css'
 import {useEffect, useState} from "react";
 import {deleteDeck, listDecks, readDeck} from "../../utils/api";
 
