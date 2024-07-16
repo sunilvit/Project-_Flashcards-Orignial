@@ -2,6 +2,7 @@ import Header from "../Header";
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {createCard, readDeck} from "../../utils/api";
+import CardForm from "./CardForm";
 
 function AddCardToDeck(){
     const {deckId} = useParams();
@@ -46,25 +47,12 @@ function AddCardToDeck(){
                     Add Card
                 </nav>
                 <h2>Add Card</h2>
-                <form onSubmit={handleCardSubmit}>
-                    <label htmlFor='front'>Front
-                        <br/>
-                        <textarea id='front' name='front' rows='4' cols='50' placeholder='Front side of card'
-                                onChange={handleCardChange} value={formData.front}/>
-                    </label>
-                    <br/>
-                    <br/>
-                    <label htmlFor='back'>Front
-                        <br/>
-                        <textarea id='back' name='back' rows='4' cols='50' placeholder='Back side of card'
-                                  onChange={handleCardChange} value={formData.back}/>
-                    </label>
-                    <br/>
-                    <div>
-                        <Link to={`/decks/${deckId}`} className='button-link cancel'>Done</Link>
-                        <button type='submit' className='button-link submit'>Save</button>
-                    </div>
-                </form>
+                <CardForm
+                    handleCardSubmit = {handleCardSubmit}
+                    formData={formData}
+                    handleCardChange={handleCardChange}
+                    deckId={deckId}>
+                </CardForm>
             </div>
         </div>
     )
