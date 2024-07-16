@@ -1,10 +1,11 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './ListDeckItem.css'
 import {useEffect, useState} from "react";
-import {deleteDeck, readDeck} from "../../utils/api";
+import {deleteDeck, listDecks, readDeck} from "../../utils/api";
 
 function ListDeckItem({deck, index}){
     const [cards, setCards] = useState([]);
+    const navigate = useNavigate();
 
     useEffect( () => {
         const abortController = new AbortController();
@@ -19,9 +20,14 @@ function ListDeckItem({deck, index}){
 
     const handleDeckDelete = (e) => {
         e.preventDefault();
-        if (window.confirm('Delete this deck?')){
-            // const abortController = new AbortController();
-            // deleteDeck(deck.id, abortController.signal).then(r => );
+        if (window.confirm('Delete this deck?\n\n You will not be able to recover it.')){
+            const abortController = new AbortController();
+            deleteDeck(deck.id, abortController.signal).then(response =>{
+                console.log(`Deleted ${deck.id} Successfully!!`)
+                navigate(0);
+                }).catch(
+                error => console.log(error)
+            )
         }
     }
 
@@ -33,11 +39,11 @@ function ListDeckItem({deck, index}){
                 <p>{deck.description}</p>
                 <div className="list-deck-item-links-container">
                     <div className="left-links">
-                        <Link to={`/decks/${deck.id}`} className='button-link view'>View(TBD)</Link>
-                        <Link to={`/decks/${deck.id}/study`} className='button-link study'>Study(TBD)</Link>
+                        <Link to={`/decks/${deck.id}`} className='button-link view'>View</Link>
+                        <Link to={`/decks/${deck.id}/study`} className='button-link study'>Study</Link>
                     </div>
                     <div className="right-links">
-                        <button onClick={handleDeckDelete} className='button-link delete'>Delete(TBD)</button>
+                        <button onClick={handleDeckDelete} className='button-link delete'>Delete</button>
                     </div>
                 </div>
             </div>
